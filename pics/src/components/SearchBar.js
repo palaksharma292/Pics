@@ -4,7 +4,7 @@ function SearchBar({ onSubmit }) {
     const [term, setTerm] = useState('cars');
     const onTextChange = event => {
         setTerm(event.target.value.replace(/[0-9]/,''));
-        console.log(term);
+        //console.log(term);
     };
     const handleFormSubmit = event => {
         //prevent the submit form from refreshing page

@@ -1,9 +1,9 @@
-function App(){
+function ImageShow({image}){
     return(
         <div>
-            Image Show
+            {image.alt_description}
         </div>
     );
 }
 
-export default App;
+export default ImageShow;
