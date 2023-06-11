@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 function SearchBar({ onSubmit }) {
-    const [term, setTerm] = useState('');
+    const [term, setTerm] = useState('cars');
     const onTextChange = event => {
-        setTerm(event.target.value);
+        setTerm(event.target.value.replace(/[0-9]/,''));
         console.log(term);
     };
     const handleFormSubmit = event => {
@@ -14,7 +14,11 @@ function SearchBar({ onSubmit }) {
     return (
         <div>
             <form onSubmit={handleFormSubmit}>
+                Confirm your search: {term}
+                <br/>
                 <input value={term} type='text' onChange={onTextChange} required />
+                <br/>
+                {term.length<3 && 'term must be longer'}
             </form>
         </div>
     );
