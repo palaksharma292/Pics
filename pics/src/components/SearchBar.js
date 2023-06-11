@@ -1,22 +1,21 @@
 import { useState } from "react";
 
-function SearchBar({onSubmit}){
-    const [term, setTerm]=useState('');
-    const onTextChange=event=>{
+function SearchBar({ onSubmit }) {
+    const [term, setTerm] = useState('');
+    const onTextChange = event => {
         setTerm(event.target.value);
         console.log(term);
     };
-    const handleFormSubmit=event=>{
-
+    const handleFormSubmit = event => {
         //prevent the submit form from refreshing page
         event.preventDefault();
         onSubmit(term);
     };
-    return(
+    return (
         <div>
             <form onSubmit={handleFormSubmit}>
-                <input type='text' onChange={onTextChange} required />
-            </form>            
+                <input value={term} type='text' onChange={onTextChange} required />
+            </form>
         </div>
     );
 }
